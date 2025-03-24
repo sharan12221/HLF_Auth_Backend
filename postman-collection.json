@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "8231e5a8-5fd2-4d4b-95d4-bf59219e51d5",
+		"name": "BACKEND_JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31637448"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"111111\", \n    \"password\": \"sharanpw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "4.246.227.118:3000/api/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"11111\", \n    \"password\": \"sharanpw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "4.246.227.118:3000/api/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chaincode",
+			"item": [
+				{
+					"name": "invoke",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNoYXJhbjExIiwiaWF0IjoxNzQyODA2OTIwLCJleHAiOjE3NDI4OTMzMjB9.dVS_TpyKec2fFqGYPHRc8elWiFdjtrWA3ZxWixKWzm4"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"functionName\": \"CreateAsset\", \n    \"args\": [\"105\", \"red\", \"10\", \"sharan\", \"10\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "4.246.227.118:3000/api/chaincode/invoke"
+					},
+					"response": []
+				},
+				{
+					"name": "query",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNoYXJhbjExIiwiaWF0IjoxNzQyODA2OTIwLCJleHAiOjE3NDI4OTMzMjB9.dVS_TpyKec2fFqGYPHRc8elWiFdjtrWA3ZxWixKWzm4"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"functionName\": \"ReadAsset\", \n    \"args\": [\"106\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "4.246.227.118:3000/api/chaincode/query"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
