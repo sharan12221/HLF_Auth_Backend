@@ -56,7 +56,7 @@ class FabricCAUtil {
         enrollmentSecret: ADMIN_USER_PASSWORD 
       });
 
-      await this.validateCertificate(enrollment.certificate);
+      // await this.validateCertificate(enrollment.certificate);
 
       const x509Identity = {
         credentials: {
