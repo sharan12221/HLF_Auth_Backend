@@ -6,7 +6,7 @@ const config = {
     port: process.env.PORT || 3000,
     env: process.env.NODE_ENV || 'development',
     jwtSecret: process.env.JWT_SECRET || 'your-secret-key',
-    jwtExpiration: '24h'
+    jwtExpiration: process.env.JWT_EXPIRATION || '24h'
   },
   fabric: {
     caUrl: process.env.FABRIC_CA_URL || 'https://localhost:7054',
@@ -15,12 +15,12 @@ const config = {
     channelName: process.env.FABRIC_CHANNEL_NAME || 'mychannel',
     chaincodeName: process.env.FABRIC_CHAINCODE_NAME || 'basic',
     walletPath: path.join(__dirname, '..', '..', 'wallet'),
-    connectionProfilePath: process.env.FABRIC_CONNECTION_PROFILE_PATH
+    connectionProfilePath: process.env.FABRIC_CONNECTION_PROFILE_PATH || "/home/azureuser/auth/HLF_Auth_Backend/src/config/connection-org1.json"
   },
   security: {
     rateLimit: {
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100 // limit each IP to 100 requests per windowMs
+      windowMs: process.env.windowMs || 15 * 60 * 1000, // 15 minutes
+      max: process.env.max || 100 // limit each IP to 100 requests per windowMs
     }
   }
 };
