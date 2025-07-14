@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
+// const rateLimit = require('express-rate-limit');
 const config = require('./config');
 const logger = require('./utils/logger');
 const fabricCAUtil = require('./utils/fabric-ca');
@@ -15,7 +15,7 @@ const app = express();
 // Security middleware
 app.use(helmet());
 app.use(cors());
-app.use(rateLimit(config.security.rateLimit));
+// app.use(rateLimit(config.security.rateLimit));
 
 // Logging middleware
 app.use(morgan('combined', { stream: { write: message => logger.info(message.trim()) } }));
