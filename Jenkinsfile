@@ -19,5 +19,10 @@ pipeline {
                 sh 'pm2 restart all || pm2 start src/server.js --name my-express-app'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'ssh user@your-server "cd /path/to/app && git pull && npm install && pm2 restart all"'
+            }
+        }
     }
 }
