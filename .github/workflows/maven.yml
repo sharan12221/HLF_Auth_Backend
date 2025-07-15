@@ -26,4 +26,4 @@ jobs:
         run: npm install pm2
 
       - name: Run server
-        run: npm start
+        run: pm2 npm start
