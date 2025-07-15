@@ -32,12 +32,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Test') {
-            steps {
-                // Uncomment if you have tests
-                // sh 'npm test'
-            }
-        }
         stage('Deploy') {
             steps {
                 sh 'pm2 restart my-express-app || pm2 start src/server.js --name my-express-app'
