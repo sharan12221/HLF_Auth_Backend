@@ -37,9 +37,6 @@ jobs:
             # Start server in background using nohup
             nohup node ./src/server.js > app.log 2>&1 &
 
-            sleep 3
-            pgrep -f "node ./src/server.js" && echo "Server is running." || echo "Failed to start server."
-
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
