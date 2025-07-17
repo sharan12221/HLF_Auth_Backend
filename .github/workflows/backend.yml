@@ -33,9 +33,6 @@ jobs:
             echo "Killing existing process on port 3000 if any..."
             fuser -k 3000/tcp || true
 
-            # Optional: kill any lingering node server
-            pkill -f "node ./src/server.js" || true
-
             npm i 
             # Start server in background using nohup
             nohup node ./src/server.js > app.log 2>&1 &
