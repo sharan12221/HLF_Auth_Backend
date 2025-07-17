@@ -29,6 +29,7 @@ jobs:
             git branch            
             git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
             git status
+            npm i 
             # Start server in background using nohup
             nohup node src/server.js > app.log 2>&1 &
 
