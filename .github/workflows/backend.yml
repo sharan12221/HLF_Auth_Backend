@@ -27,7 +27,8 @@ jobs:
             cd /home/azureuser/HLF_Auth_Backend
             git stash
             git branch            
-            git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
+            # git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
+            git pull https://github.com/sharan12221/HLF_Auth_Backend.git main
             git status
 
             echo "Killing existing process on port 3000 if any..."
