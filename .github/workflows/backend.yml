@@ -22,21 +22,23 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            echo "Executing SSH commands..."
-            # sudo su ubuntu
-            cd /home/azureuser/HLF_Auth_Backend
-            git stash
-            git branch            
-            # git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
-            git pull https://github.com/sharan12221/HLF_Auth_Backend.git main
-            git status
+            # echo "Executing SSH commands..."
+            # # sudo su ubuntu
+            # cd /home/azureuser/HLF_Auth_Backend
+            # git stash
+            # git branch            
+            # # git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
+            # git pull https://github.com/sharan12221/HLF_Auth_Backend.git main
+            # git status
 
-            echo "Killing existing process on port 3000 if any..."
-            fuser -k 3000/tcp || true
+            # echo "Killing existing process on port 3000 if any..."
+            # fuser -k 3000/tcp || true
 
-            npm i 
-            # Start server in background using nohup
-            nohup node ./src/server.js > app.log 2>&1 &
+            ######### uncomment if run server
+
+            # npm i 
+            # # Start server in background using nohup
+            # nohup node ./src/server.js > app.log 2>&1 &
 
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
