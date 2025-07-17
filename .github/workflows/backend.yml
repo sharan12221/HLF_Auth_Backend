@@ -1,0 +1,40 @@
+name: GitHub Actions Pipeline
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+          
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME_DEV }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 8726
+          script: |
+            echo "Executing SSH commands..."
+            # sudo su ubuntu
+            cd /home/azureuser
+            git stash
+            git branch            
+            git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
+            git status
+            # Start server in background using nohup
+            nohup node src/server.js > app.log 2>&1 &
+
+            sleep 3
+            pgrep -f "node src/server.js" && echo "Server is running." || echo "Failed to start server."
+
+        env:
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
