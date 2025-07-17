@@ -24,7 +24,7 @@ jobs:
           script: |
             echo "Executing SSH commands..."
             # sudo su ubuntu
-            cd /home/azureuser
+            cd /home/azureuser/HLF_Auth_Backend
             git stash
             git branch            
             git pull https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_PASSWORD }}@github.com/sharan12221/HLF_Auth_Backend.git main
@@ -32,7 +32,7 @@ jobs:
             echo "PWD:${PWD}"
             npm i 
             # Start server in background using nohup
-            nohup node ./HLF_Auth_Backend/src/server.js > app.log 2>&1 &
+            nohup node ./src/server.js > app.log 2>&1 &
 
             sleep 3
             pgrep -f "node ./src/server.js" && echo "Server is running." || echo "Failed to start server."
