@@ -20,7 +20,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME_DEV }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 8726
+          port: 22
           script: |
             echo "Executing SSH commands..."
             # sudo su ubuntu
