@@ -4,3 +4,4 @@ cp /home/azureuser/supplyChain/fabric-samples/test-network/organizations/peerOrg
 sleep 2
 
 node src/server.js
+
